@@ -1,4 +1,4 @@
-# Face Mask Detection – FastAPI + Docker
+# Face Mask Detection: FastAPI + Docker
 
 This project implements a Face Mask Detection system using TensorFlow Lite
 with a FastAPI backend and Dockerized deployment.
