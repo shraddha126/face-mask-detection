@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+models/*.tflite
+models/*.keras
+.DS_Store

@@ -1,0 +1,12 @@
+📊 TFLite Benchmark Results
+========================================
+
+FP32 MODEL
+Model size     : 2.55 MB
+Avg latency    : 10.67 ms
+FPS            : 93.72
+
+INT8 MODEL
+Model size     : 2.74 MB
+Avg latency    : 4.22 ms
+FPS            : 236.97

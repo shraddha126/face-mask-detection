@@ -1,0 +1,7 @@
+venv
+__pycache__
+*.pyc
+.git
+.vscode
+models/*.h5
+models/*.tflite

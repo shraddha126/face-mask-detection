@@ -1,0 +1,7 @@
+-r base.txt
+
+fastapi
+uvicorn[standard]
+python-multipart
+
+tensorflow==2.13.0

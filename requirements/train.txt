@@ -1,0 +1,6 @@
+-r base.txt
+
+tensorflow==2.13.0
+matplotlib
+scikit-learn
+pandas
