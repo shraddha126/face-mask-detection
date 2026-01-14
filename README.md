@@ -9,12 +9,9 @@ with a FastAPI backend and Dockerized deployment.
 - Dockerized server
 - Local webcam & image clients
 - Modular project structure
+- Real-time mask detection using webcam.
+- Trained on custom dataset.
+- Outputs bounding boxes with labels: "Mask" / "No Mask".
 
-## Project Structure
-app/
-  ├── main.py
-  ├── inference.py
-  ├── config.py
-requirements/
-models/
-Dockerfile
+
+
