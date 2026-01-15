@@ -2,7 +2,9 @@
 
 This project implements a Face Mask Detection system using TensorFlow Lite
 with a FastAPI backend and Dockerized deployment.
-Dataset files csan be downloaded from Kaggle.
+
+
+Dataset files can be downloaded from Kaggle.
 
 ## Features
 - FP32 and INT8 TFLite inference
