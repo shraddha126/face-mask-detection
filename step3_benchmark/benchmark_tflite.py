@@ -55,10 +55,10 @@ def benchmark(model_name, model_path, runs=100):
 
     return avg_latency, fps
 
-# ---------------- MAIN ----------------
+
 if __name__ == "__main__":
 
-    print("\n📊 TFLite Benchmark Results")
+    print("\n TFLite Benchmark Results")
     print("=" * 40)
 
     for name, path in MODELS.items():
