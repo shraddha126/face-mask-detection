@@ -4,7 +4,7 @@ import os
 import cv2
 import random
 
-# -------- CONFIG --------
+
 IMG_SIZE = 224
 BATCH_SIZE = 1
 CALIBRATION_SAMPLES = 200
@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATASET_DIR = os.path.join(BASE_DIR, "..", "dataset")
 MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "mask_detector.keras")
 OUTPUT_PATH = os.path.join(BASE_DIR, "..", "models", "mask_detector_int8.tflite")
-# ------------------------
+
 
 def representative_data_gen():
     image_paths = []
@@ -57,5 +57,5 @@ tflite_model = converter.convert()
 with open(OUTPUT_PATH, "wb") as f:
     f.write(tflite_model)
 
-print("✅ INT8 TFLite model saved at:")
+print("INT8 TFLite model saved at:")
 print(OUTPUT_PATH)
