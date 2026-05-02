@@ -3,18 +3,14 @@ from PIL import Image
 from app.inference import MaskDetector
 import io
 
-# -----------------------------
-# 1️⃣ Create FastAPI app
-# -----------------------------
+
 app = FastAPI(
     title="Face Mask Detection API",
     description="Detects face masks from uploaded images using TFLite",
     version="1.0"
 )
 
-# -----------------------------
-# 2️⃣ Initialize the TFLite detector on startup
-# -----------------------------
+
 detector = None
 
 @app.on_event("startup")
@@ -26,16 +22,12 @@ def load_model():
     except FileNotFoundError:
         raise RuntimeError("Model file not found in /models folder!")
 
-# -----------------------------
-# 3️⃣ Health check endpoint
-# -----------------------------
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
-# -----------------------------
-# 4️⃣ Predict endpoint
-# -----------------------------
+
 @app.post("/predict/image")
 async def predict_image(file: UploadFile = File(...)):
     try:
