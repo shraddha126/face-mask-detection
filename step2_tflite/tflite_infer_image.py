@@ -5,7 +5,7 @@ import sys
 import os
 import time
 
-# ---------------- CONFIG ----------------
+
 IMG_SIZE = 224
 
 # INT8 MODEL
@@ -15,7 +15,7 @@ MODEL_PATH = "/app/models/mask_detector_int8.tflite"
 # MODEL_PATH = "/app/models/mask_detector_fp32.tflite"   # ← FP32 CHANGE
 
 CLASS_NAMES = ["mask_incorrect", "with_mask", "without_mask"]
-# ----------------------------------------
+
 
 # Load TFLite model
 interpreter = tf.lite.Interpreter(model_path=MODEL_PATH)
@@ -40,13 +40,10 @@ def preprocess_image(image_path):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
 
-    # ---------------- INT8 PREPROCESSING ----------------
-    # INT8 / UINT8 models DO NOT use normalization
     img = img.astype(np.uint8)
 
-    # ---------------- FP32 PREPROCESSING ----------------
-    # img = img.astype(np.float32) / 255.0        # ← FP32 CHANGE
-    # ----------------------------------------------------
+  # img = img.astype(np.float32) / 255.0        # <- FP32 CHANGE
+
 
     img = np.expand_dims(img, axis=0)
     return img
@@ -64,14 +61,14 @@ def predict(image_path):
     # Get output tensor
     preds = interpreter.get_tensor(output_details[0]["index"])[0]
 
-    # ---------------- INT8 OUTPUT DEQUANTIZATION ----------------
+    # INT8 OUTPUT DEQUANTIZATION
     if output_details[0]["dtype"] == np.uint8:
         scale, zero_point = output_details[0]["quantization"]
         preds = scale * (preds.astype(np.float32) - zero_point)
 
-    # ---------------- FP32 OUTPUT ----------------
+    # FP32 OUTPUT
     # No dequantization needed for FP32
-    # ------------------------------------------------------------
+
 
     class_id = np.argmax(preds)
     confidence = preds[class_id]
