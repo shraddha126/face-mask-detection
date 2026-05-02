@@ -1,5 +1,4 @@
-📊 TFLite Benchmark Results
-========================================
+
 
 FP32 MODEL
 Model size     : 2.55 MB
